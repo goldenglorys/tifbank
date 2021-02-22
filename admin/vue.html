@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body id="first-vue">
+<div>{{ name }}</div>
+<input v-model="name">
+<p v-bind:title="name">Paragraph</p>
+<button v-on:click="doSomething">Click</button>
+</table>
+<script type="text/javascript">
+
+	var app = new Vue({
+        el : "#first-vue",
+	        datas : {
+	        	name : "Vue",
+	        	skillsSet : [
+	        	    {name:"Java",age:"45"},
+	        	    {name:"C",age:"55"}
+	        	],
+	        },
+	        actions : {
+	            doSomething : function() {
+	            	alert("My name is "+app.skillsSet[1].name+ " I am "+app.skillsSet[1].age+" years old!");
+	            },
+	            doSomething2 : function() {
+	            	alert("My name is "+app.skillsSet[2].name+ " I am "+app.skillsSet[2].age+" years old!");
+	            },
+	        },
+	});
+
+</script>
+</body>
+</html>

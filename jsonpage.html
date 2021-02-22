@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta charset="utf-8">
+<meta class="viewport" content="width=device-width , initial-scale=1">
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+  <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<form>
+<div class="col-md-6">
+	<input type="text" name="user" id="user" class="form-control" onkeyup="search(this.value)">
+  <div id="show">
+    <table class="table table-bordered">
+    <thead>
+       <th>Account Id</th>
+       <th>Account Name</th>
+       <th>Account Number</th>
+       <th>Account Balance</th>
+    </thead>
+     <tbody>
+      <!--  <tr><td>nk</td><td>nk</td><td>nk</td><td>nk</td></tr>
+        <tr><td>nk</td><td>nk</td><td>nk</td><td>nk</td></tr> -->
+     </tbody>
+    </table>
+  </div>
+</form>
+</body>
+<script>
+        function search(b){
+            var boom='';
+            $.post("jsonarray.php",{input:b},function(throws){info=JSON.parse(throws);alert(info[0].account_name);
+              for(i=0;i<info.length;i++){
+              boom+="<tr><td>"+info[i].account_id+"</td><td>"+info[i].account_name+"</td><td>"+info[i].account_number+"</td><td>"+info[i].account_balance+"</td></tr>";
+              }
+            $('tbody').html(boom);
+            });
+        }
+    </script>
+</html>
+<!--  id.innerHTMl=info.account_id;name.innerHTMl=info.account_name;mail.innerHTMl=info.email;phone.innerHTMl=info.phone_number;
+ -->       
